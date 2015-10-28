@@ -32,17 +32,17 @@ public class MySearchEngine implements SearchEngine {
         type.setExtension(".pdf");
 
         Document document = new Document();
-        document.setName("Book Template");
+        document.setName("sample1");
         document.setType(type);
-        document.setLocation("/Users/felipeg/Documents/Random/Book Template.pdf");
+        document.setLocation("files/sample1.pdf");
 
         result.add(document);
 
         document = new Document();
-        document.setName("Sample Contract");
+        document.setName("sample2");
         document.setType(type);
         document.setLocation(
-                "/Users/felipeg/Documents/Contracts/Sample Contract.pdf");
+                "files/sample2.pdf");
 
         result.add(document);
 
@@ -55,7 +55,7 @@ public class MySearchEngine implements SearchEngine {
         document.setName("Clustering with RabbitMQ");
         document.setType(type);
         document.setLocation(
-                "/Users/felipeg/Documents/Random/Clustering with RabbitMQ.txt");
+                "files/textFileSample.txt");
 
         result.add(document);
 
