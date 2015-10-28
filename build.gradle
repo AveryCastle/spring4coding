@@ -1,48 +1,20 @@
-buildscript {
-    ext {
-        springBootVersion = '1.2.7.RELEASE'
-    }
-    repositories {
-        mavenCentral()
-    }
-    dependencies {
-        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
-        classpath('io.spring.gradle:dependency-management-plugin:0.5.2.RELEASE')
-    }
-}
-
 apply plugin: 'java'
-apply plugin: 'eclipse'
-apply plugin: 'idea'
-apply plugin: 'spring-boot'
-apply plugin: 'io.spring.dependency-management'
 
-jar {
-    baseName = 'spring4coding'
-    version = '0.0.1-SNAPSHOT'
-}
-sourceCompatibility = 1.8
-targetCompatibility = 1.8
+group = 'com.apress.isf.java'
+version = '1.0'
 
 repositories {
     mavenCentral()
-    maven { url "http://repo.spring.io/libs-snapshot" }
-    maven { url "http://repo.spring.io/milestone" }
-    maven { url "http://repo.spring.io/libs-release" }
 }
 
 dependencies {
-    compile("org.springframework.boot:spring-boot-starter-web:1.2.7.RELEASE")
-    testCompile('org.springframework.boot:spring-boot-starter-test')
+    compile("org.codehaus.groovy:groovy-all:2.4.+")
+    compile("org.springframework:spring-context:4.2.2.RELEASE")
+    testCompile("junit:junit:4.12")
 }
 
-eclipse {
-    classpath {
-        containers.remove('org.eclipse.jdt.launching.JRE_CONTAINER')
-        containers 'org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8'
+test {
+    testLogging {
+        events 'started', 'passed'
     }
-}
-
-task wrapper(type: Wrapper) {
-    gradleVersion = '2.7'
 }
