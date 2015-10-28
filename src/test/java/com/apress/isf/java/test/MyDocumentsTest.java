@@ -17,13 +17,13 @@ public class MyDocumentsTest {
     @Test
     public void testFindByType() {
         Type documentType = new Type();
-        documentType.setName("WEB");
-        documentType.setDesc("Web Link");
-        documentType.setExtension(".url");
+        documentType.setName("PDF");
+        documentType.setDesc("Portable Document Format");
+        documentType.setExtension(".pdf");
 
         List<Document> documents = engine.findByType(documentType);
         assertNotNull(documents);
-        assertTrue(documents.size() == 1);
+        assertTrue(documents.size() == 2);
         assertEquals(documentType.getName(), documents.get(0).getType().getName());
         assertEquals(documentType.getDesc(), documents.get(0).getType().getDesc());
         assertEquals(documentType.getExtension(),
