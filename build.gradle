@@ -8,22 +8,6 @@ repositories {
     mavenCentral()
 }
 
-checkstyle {
-
-    project.ext.checkstyleVersion = '6.12'
-
-    configFile = file("${project.rootDir}/config/checkstyle/google_modify_checks.xml")
-
-    configurations {
-        checkstyle
-    }
-
-    dependencies{
-        checkstyle "com.puppycrawl.tools:checkstyle:${checkstyleVersion}"
-    }
-}
-
-
 dependencies {
     compile("org.codehaus.groovy:groovy-all:2.4.+")
     compile("org.springframework:spring-context:4.2.2.RELEASE")
@@ -38,4 +22,17 @@ test {
 
 task wrapper(type: Wrapper) {
     gradleVersion = '2.8'
+}
+
+checkstyle {
+    toolVersion = '6.12'
+    configFile = file("${project.rootDir}/config/checkstyle/google_modify_checks.xml")
+}
+
+checkstyleMain {
+    outputs.upToDateWhen { false }
+}
+
+checkstyleTest {
+    outputs.upToDateWhen { false }
 }
