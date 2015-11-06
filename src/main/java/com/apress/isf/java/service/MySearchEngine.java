@@ -12,8 +12,9 @@ public class MySearchEngine implements SearchEngine {
     public List<Document> findByType(Type documentType) {
         List<Document> result = new ArrayList<Document>();
         for (Document document : storage()) {
-            if (document.getType().getName().equals(documentType.getName()))
+            if (document.getType().getName().equals(documentType.getName())) {
                 result.add(document);
+            }
         }
         return result;
     }
@@ -24,7 +25,8 @@ public class MySearchEngine implements SearchEngine {
     }
 
     private List<Document> storage() {
-        List<Document> result = new ArrayList<Document>();
+        List<Document> result;
+        result = new ArrayList<Document>();
 
         Type type = new Type();
         type.setName("PDF");

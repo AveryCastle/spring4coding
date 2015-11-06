@@ -8,13 +8,13 @@ jdk:
 #install: true
 
 before_script:
-  - gradle --version
+  - ./gradlew --version
 
 script:
-  - gradle assemble
   - ./gradlew assemble
-  - gradle --version
-  - gradle test
+  - ./gradlew --version
+  - ./gradlew check
+  - ./gradlew test
 
 notifications:
   email: false
